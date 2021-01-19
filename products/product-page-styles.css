@@ -10,10 +10,17 @@ p, h3, button {
 
 img {
     width: 100%;
+    height: 200px;
+}
+
+.main-section ul {
+    display: flex;
+    flex-wrap: wrap;
 }
 
 li {
     width: 200px;
+    margin: 20px;
 }
 .main-section li {
     display: flex;

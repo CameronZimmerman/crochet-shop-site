@@ -8,16 +8,7 @@ const test = QUnit.test;
 test('given obj, return correctly filled HTML string ', (expect) => {
     //Arrange
     // Set up your arguments and expectations
-    const expected = `<li>
-    <h3 class="item-name">Mittens</h3>
-    <div class="img-container">
-        <img src="../assets/mittens.png" alt="a warm cozy pair of mittens">
-    </div>           
-    <p class="item-category">Category: clothing</p>
-    <p class="item-price">Price: $10</p>
-    <p class="item-description">a warm cozy pair of mittens</p>
-    <button class="add-button">Add to cart</button>
-</li>`;
+    const expected = `<li><h3 class="item-name">Mittens</h3><div class="img-container"><img src="../assets/mittens.png" alt="A warm and cozy pair of mittens!"></div><p class="item-category">Category: clothing</p><p class="item-price">Price: $15</p><p class="item-description">A warm and cozy pair of mittens!</p><button class="add-button">Add to cart</button></li>`;
     
     //Act 
     // Call the function you're testing and set the result to a const
@@ -25,5 +16,5 @@ test('given obj, return correctly filled HTML string ', (expect) => {
 
     //Expect
     // Make assertions about what is expected versus the actual result
-    expect.equal(actual, expected);
+    expect.equal(actual.outerHTML, expected);
 });

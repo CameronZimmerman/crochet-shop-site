@@ -17,7 +17,7 @@ body {
     --gutter: 30px;
     --footer-height: 25px;
     
-    font-family: 'Titillium Web', sans-serif;
+    font-family: 'Bitter', serif;
     background-color: #A4BEF3;
     
 }
@@ -58,7 +58,7 @@ header {
 header h1 {
     font-weight: 900;
     font-size: 2em;
-}
+    font-family: 'Inconsolata', monospace;}
 
 nav {
     padding: 15px;

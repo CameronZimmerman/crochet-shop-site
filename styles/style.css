@@ -13,12 +13,12 @@ body {
     --color4: hsla(45, 73%, 98%, 1);
     --color5: hsla(224, 40%, 79%, 1); */
     
-    --header-height: 80px;
+    --header-height: 100px;
     --gutter: 30px;
     --footer-height: 25px;
     
     font-family: 'Bitter', serif;
-    background-color: #A4BEF3;
+    background-color: #E9C4BC;
     
 }
 
@@ -52,7 +52,7 @@ header {
     flex-direction: column;
     text-align: center;
     height: var(--header-height);
-    background-color: #857885;
+    background-color:beige;
 }
 
 header h1 {
@@ -98,19 +98,6 @@ h2 {
     font-weight: bold;
 }
 
-.gutter-right {
-    margin-right: 20px;
-}
-
-.main-logo {
-    animation: pulse 5s infinite ease-in-out;
-}
-
-header img {
-    height: var(--header-height);
-}
-
-
 
 content {
     width: 80%;
@@ -131,21 +118,3 @@ footer {
     box-shadow: var(--shadow);
 }
   
-  @keyframes pulse {
-    20% {
-      transform: rotate3d(-10, -10, -10, 50deg) scale(1.2);
-    }
-
-    40% {
-        transform: rotate3d(10, 10, -10, 50deg) scale(1);
-    }
-
-    60% {
-        transform: rotate3d(-10, 10, 10, 50deg) scale(1.2);
-      }
-
-    80% {
-        transform: rotate3d(10, 10, 10, 50deg) scale(1);
-    }
-
-  }

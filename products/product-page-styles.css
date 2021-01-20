@@ -25,13 +25,13 @@ img {
     border-radius: 5px;
     width: 200px;
     margin: 20px;
-    background-color: #87A0B2;
+    background-color: #CCF;
     box-shadow: 0px 10px 20px -12px rgba(0,0,0,0.9);;
 }
 
 
 #product-list :hover{
-    background-color: #684A52;
+    background-color: gray;
 }
 
 

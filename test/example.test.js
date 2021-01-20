@@ -88,14 +88,14 @@ test('given a quantity and price, return total amount ', (expect) => {
 });
 
 //render cart row function
-test('given cart item, return correct dom element ', (expect) => {
+test('given cart item id and garment array, return correct dom element ', (expect) => {
     //Arrange
     // Set up your arguments and expectations
     const expected = `<tr><td>Mittens</td><td>1</td><td>$15</td></tr>`;
     
     //Act 
     // Call the function you're testing and set the result to a const
-    const actual = renderCartRow(cart[0]);
+    const actual = renderCartRow(cart[0], garments[0]);
 
     //Expect
     // Make assertions about what is expected versus the actual result

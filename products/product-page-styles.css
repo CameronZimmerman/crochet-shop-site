@@ -12,6 +12,7 @@ img {
 }
 
 .main-section ul {
+    padding-top: 10%;
     display: flex;
     flex-wrap: wrap;
 }

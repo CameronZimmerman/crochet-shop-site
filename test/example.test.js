@@ -1,5 +1,4 @@
 // IMPORT MODULES under test here:
-import { garments } from '../products/garments.js';
 import { renderGarments } from '../products/garments-render.js';
 import { findByID } from '../utils.js';
  

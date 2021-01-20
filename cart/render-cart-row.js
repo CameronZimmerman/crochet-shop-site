@@ -1,6 +1,4 @@
-import { cartData } from './cart-data.js';
-import { garments } from '../products/garments.js';
- 
+
 export function renderCartRow(cartItem, garment) {
     const tr = document.createElement('tr');
 

@@ -16,20 +16,24 @@ export function renderGarments(garment) {
     garmentImg.alt = garment.description;
     imgContainer.append(garmentImg);
 
+    const textContainer = document.createElement('div');
+    textContainer.classList.add('text-container');
+    garmentLi.append(textContainer);
+
     const garmentCategoryP = document.createElement('p');
     garmentCategoryP.classList.add('item-category');
     garmentCategoryP.textContent = `Category: ${garment.category}`;
-    garmentLi.append(garmentCategoryP);
+    textContainer.append(garmentCategoryP);
 
     const garmentPriceP = document.createElement('p');
     garmentPriceP.classList.add('item-price');
     garmentPriceP.textContent = `Price: $${garment.price}`;
-    garmentLi.append(garmentPriceP);
+    textContainer.append(garmentPriceP);
 
     const garmentDescriptionP = document.createElement('p');
     garmentDescriptionP.classList.add('item-description');
     garmentDescriptionP.textContent = garment.description;
-    garmentLi.append(garmentDescriptionP);
+    textContainer.append(garmentDescriptionP);
 
     const addButton = document.createElement('button');
     addButton.textContent = 'Add to cart';

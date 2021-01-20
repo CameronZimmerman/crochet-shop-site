@@ -26,12 +26,45 @@ img {
     width: 200px;
     margin: 20px;
     background-color: #CCF;
-    box-shadow: 0px 10px 20px -12px rgba(0,0,0,0.9);;
+    box-shadow: 0px 10px 20px -12px rgba(0,0,0,1);
+
 }
 
+.text-container {
+    border: 1px gray solid;
+    padding: 5px;
+    margin: 5px;
+    border-radius: 10%;
+}
 
-#product-list :hover{
-    background-color: gray;
+.main-section li button {
+    margin: 5px;
+    padding: 10px;
+    background-color: rgb(212, 212, 212);
+    font-family: "Reeperbahn", cursive;
+    font-size: 2em;
+    border-radius: 50%;
+    outline: none;
+}
+
+@font-face {
+    font-family: "Reeperbahn";
+    src: url("../assets/Reeperbahn.ttf");
+}
+
+.main-section li h3 {
+    margin: 5px;
+    font-family: "Reeperbahn", cursive;
+    font-size: 2.5em;
+}
+
+.item-price {
+    font-weight: bolder;
+    font-size: 1.1em;
+}
+
+.item-description {
+    font-size: 0.8em;
 }
 
 

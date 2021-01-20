@@ -52,13 +52,18 @@ header {
     flex-direction: column;
     text-align: center;
     height: var(--header-height);
-    background-color:beige;
+    background-color:#CCF;
+    border: 1px solid gray;
+}
+
+@font-face {
+    font-family: "Reeperbahn";
+    src: url("../assets/Reeperbahn.ttf");
 }
 
 header h1 {
-    font-weight: 900;
-    font-size: 2em;
-    font-family: 'Inconsolata', monospace;}
+    font-size: 4em;
+    font-family: 'Reeperbahn', cursive;}
 
 nav {
     padding: 15px;
@@ -80,7 +85,6 @@ nav ul li {
 }
 
 nav ul li :hover {
-    font-size: 1.05em;
     background-color: gray;
     border: 1px solid;
 }

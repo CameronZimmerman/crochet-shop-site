@@ -13,4 +13,4 @@ export const cartData = [
         id: 3,
         quantity: 2
     }
-]
+];

@@ -1,6 +1,7 @@
 // IMPORT MODULES under test here:
 import { renderGarments } from '../products/garments-render.js';
 import { findByID, calcItemTotal } from '../utils.js';
+import { renderCartRow } from '../cart/render-cart-row.js';
  
 const test = QUnit.test;
 
@@ -41,8 +42,8 @@ const cart = [
     }
 ];
 
-//render function test
-test('given obj, return correctly filled HTML string ', (expect) => {
+//render products function test
+test('given obj, return correct dom Element ', (expect) => {
     //Arrange
     // Set up your arguments and expectations
     const expected = `<li><h3 class="item-name">Mittens</h3><div class="img-container"><img src="../assets/mittens.png" alt="A warm and cozy pair of mittens!"></div><div class="text-container"><p class="item-category">Category: clothing</p><p class="item-price">Price: $15</p><p class="item-description">A warm and cozy pair of mittens!</p></div><button class="add-button">Add to cart</button></li>`;
@@ -84,5 +85,20 @@ test('given a quantity and price, return total amount ', (expect) => {
     //Expect
     // Make assertions about what is expected versus the actual result
     expect.equal(actual, expected);
+});
+
+//render cart row function
+test('given cart item, return correct dom element ', (expect) => {
+    //Arrange
+    // Set up your arguments and expectations
+    const expected = `<tr><td>Mittens</td><td>1</td><td>$15</td></tr>`;
+    
+    //Act 
+    // Call the function you're testing and set the result to a const
+    const actual = renderCartRow(cart[0]);
+
+    //Expect
+    // Make assertions about what is expected versus the actual result
+    expect.equal(actual.outerHTML, expected);
 });
 

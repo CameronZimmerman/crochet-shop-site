@@ -3,10 +3,12 @@
 import { renderCartRow } from './render-cart-row.js';
 import { garments } from '../products/garments.js';
 import { findByID, calcOrderTotal } from '../utils.js';
+import { clearCart, getCart } from '../cart/cart-api.js';
+
+// grab storage data
+const cartData = getCart('cart');
 
 //grab dom elements
-
-const cartData = JSON.parse(localStorage.getItem('cart'));
 
 const table = document.querySelector('table');
 const orderButton = document.getElementById('order-button');
@@ -30,6 +32,11 @@ totalTd3.textContent = `$${calcOrderTotal(cartData, garments)}`;
 
 table.append(totalTr);
 
+if (cartData.length === 0) orderButton.classList.add('hidden');
+else orderButton.classList.remove('hidden');
+
 orderButton.addEventListener('click', () => {
-    alert('Thank you for your order!');
+    const parsedCart = JSON.stringify(cartData, true, 2);
+    alert(`Thank you for your order! you ordered ` + parsedCart);
+    clearCart('cart');
 });

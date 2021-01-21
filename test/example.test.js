@@ -122,7 +122,7 @@ localStorage.setItem('testCart3', JSON.stringify(testCart3));
 test('given obj, return correct dom Element ', (expect) => {
     //Arrange
     // Set up your arguments and expectations
-    const expected = `<li><h3 class="item-name">Mittens</h3><div class="img-container"><img src="../assets/mittens.png" alt="A warm and cozy pair of mittens!"></div><div class="text-container"><p class="item-category">Category: clothing</p><p class="item-price">Price: $15</p><p class="item-description">A warm and cozy pair of mittens!</p></div><button class="add-button">Add to cart</button></li>`;
+    const expected = `<li><h3 class="item-name">Mittens</h3><div class="img-container"><img src="../assets/mittens.png" alt="A warm and cozy pair of mittens!"></div><div class="text-container"><p class="item-category">Category: clothing</p><p class="item-price">Price: $15</p><p class="item-description">A warm and cozy pair of mittens!</p></div><input type="number" min="1" placeholder="quantity"><button class="add-button">Add to cart</button></li>`;
     
     //Act 
     // Call the function you're testing and set the result to a const
@@ -222,13 +222,13 @@ test('given a product item and a cart, add item to cart/increment quantity', (ex
     
     //Act 
     // Call the function you're testing and set the result to a const
-    const actual = addToCart(garments[0], 'testCart');
+    const actual = addToCart(garments[0], 'testCart', 1);
 
     //Expect
     // Make assertions about what is expected versus the actual result
 
     const expected2 = JSON.parse(localStorage.getItem('testCart3'));
-    const actual2 = addToCart(garments[1], 'testCart');
+    const actual2 = addToCart(garments[1], 'testCart', 1);
 
     expect.deepEqual(actual, expected);
     expect.deepEqual(actual2, expected2);

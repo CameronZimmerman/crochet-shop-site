@@ -1,5 +1,6 @@
 
 import { addToCart } from '../cart/cart-api.js';
+import { findByID } from '../utils.js';
 
 export function renderGarments(garment) {
     const garmentLi = document.createElement('li');
@@ -37,13 +38,21 @@ export function renderGarments(garment) {
     garmentDescriptionP.textContent = garment.description;
     textContainer.append(garmentDescriptionP);
 
+    const quantityInput = document.createElement('input');
+    quantityInput.type = 'number';
+    quantityInput.min = 1;
+    quantityInput.placeholder = 'quantity';
+    garmentLi.append(quantityInput);
+
     const addButton = document.createElement('button');
     addButton.textContent = 'Add to cart';
     addButton.classList.add('add-button');
     garmentLi.append(addButton);
 
     addButton.addEventListener('click', () =>{
-        addToCart(garment, 'cart');
+        const garmentQuantity = quantityInput.value ? Number(quantityInput.value) : 1;
+        addToCart(garment, 'cart', garmentQuantity);
+        quantityInput.value = quantityInput.placeholder;
     });
 
 

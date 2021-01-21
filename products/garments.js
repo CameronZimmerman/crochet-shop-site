@@ -22,7 +22,7 @@ export const garments = [
         name : 'Headband',
         image : '../assets/headband.png',
         description : 'A stylish and warm headband.',
-        category : 'clothing',
+        category : 'accessory',
         price : 10
     },
 
@@ -40,7 +40,7 @@ export const garments = [
         name : 'Scarf',
         image : '../assets/scarf.png',
         description : 'A long and luxurious crochet scarf!',
-        category : 'clothing',
+        category : 'accessory',
         price : 30
     },
 

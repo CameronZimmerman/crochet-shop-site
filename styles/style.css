@@ -1,4 +1,9 @@
 
+html, body, main {
+    width: 100%;
+    height: 100%;
+}
+
 body {
     /* https://coolors.co/generate and click export -> scss to get the colors to copy and paste below*/
     /* --color1: hsla(349, 69%, 76%, 1);
@@ -28,6 +33,9 @@ main {
     justify-content: center;
     align-items: center;
     margin-bottom: calc(var(--footer-height));
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 1.1em;
+    
 
 }
 
@@ -56,6 +64,7 @@ header {
     height: var(--header-height);
     background-color:#CCF;
     border: 1px solid gray;
+    font-family: 'Josefin Sans', sans-serif;
 }
 
 .cart-container{

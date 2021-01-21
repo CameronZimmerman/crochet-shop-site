@@ -28,7 +28,7 @@ export const garments = [
 
     {
         id : 4,
-        name : 'Mike',
+        name : 'Mike Wazowski',
         image : '../assets/mike.png',
         description : 'Michael Wazowski also known as Mike, is a main character in Monsters, Inc.',
         category : 'other',

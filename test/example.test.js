@@ -78,7 +78,45 @@ const testCart = [
     }
 ];
 
+const testCart2 = [
+    {
+        id: 1,
+        quantity: 2
+    },
+    {
+        id: 4,
+        quantity: 50
+    },
+    {
+        id: 3,
+        quantity: 2
+    }
+];
+
+const testCart3 = [
+    {
+        id: 1,
+        quantity: 2
+    },
+    {
+        id: 4,
+        quantity: 50
+    },
+    {
+        id: 3,
+        quantity: 2
+    }, 
+    {
+        id: 2,
+        quantity: 1
+    }
+];
+
+
 localStorage.setItem('testCart', JSON.stringify(testCart));
+localStorage.setItem('testCart2', JSON.stringify(testCart2));
+localStorage.setItem('testCart3', JSON.stringify(testCart3));
+
 
 //render products function test
 test('given obj, return correct dom Element ', (expect) => {
@@ -167,6 +205,33 @@ test('given a key of cart, if cart return cart, if not return empty arr', (expec
 
     //Expect
     // Make assertions about what is expected versus the actual result
+
+    const expected2 = [];
+    const actual2 = getCart('bagel');
+
     expect.deepEqual(actual, expected);
+    expect.deepEqual(actual2, expected2);
+
+});
+
+//add to cart test
+test('given a product item and a cart, add item to cart/increment quantity', (expect) => {
+    //Arrange
+    // Set up your arguments and expectations
+    const expected = JSON.parse(localStorage.getItem('testCart2'));
+    
+    //Act 
+    // Call the function you're testing and set the result to a const
+    const actual = addToCart(garments[0], 'testCart');
+
+    //Expect
+    // Make assertions about what is expected versus the actual result
+
+    const expected2 = JSON.parse(localStorage.getItem('testCart3'));
+    const actual2 = addToCart(garments[1], 'testCart');
+
+    expect.deepEqual(actual, expected);
+    expect.deepEqual(actual2, expected2);
+
 });
 

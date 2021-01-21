@@ -11,7 +11,7 @@ export function renderCartRow(cartItem, garment) {
     tr.append(tdQuantity);
 
     const tdPrice = document.createElement('td');
-    tdPrice.textContent = `$${garment.price}`;
+    tdPrice.textContent = `$${garment.price * cartItem.quantity}`;
     tr.append(tdPrice);
 
     return tr;

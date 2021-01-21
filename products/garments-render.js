@@ -51,8 +51,12 @@ export function renderGarments(garment) {
 
     addButton.addEventListener('click', () =>{
         const garmentQuantity = quantityInput.value ? Number(quantityInput.value) : 1;
+
         addToCart(garment, 'cart', garmentQuantity);
+
         quantityInput.value = quantityInput.placeholder;
+
+        alert(`You have added ${garmentQuantity} ${garment.name}(s) to your cart`);
     });
 
 

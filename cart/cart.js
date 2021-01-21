@@ -32,8 +32,8 @@ totalTd3.textContent = `$${calcOrderTotal(cartData, garments)}`;
 
 table.append(totalTr);
 
-if (cartData.length === 0) orderButton.classList.add('hidden');
-else orderButton.classList.remove('hidden');
+if (cartData.length === 0) orderButton.disabled = true;
+else orderButton.disabled = false;
 
 orderButton.addEventListener('click', () => {
     const parsedCart = JSON.stringify(cartData, true, 2);

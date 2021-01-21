@@ -41,7 +41,7 @@ export function renderGarments(garment) {
     const quantityInput = document.createElement('input');
     quantityInput.type = 'number';
     quantityInput.min = 1;
-    quantityInput.placeholder = 'quantity';
+    quantityInput.placeholder = 'quantity: 1';
     garmentLi.append(quantityInput);
 
     const addButton = document.createElement('button');

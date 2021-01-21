@@ -1,11 +1,12 @@
 //import functions
 
-import { cartData } from './cart-data.js';
 import { renderCartRow } from './render-cart-row.js';
 import { garments } from '../products/garments.js';
 import { findByID, calcOrderTotal } from '../utils.js';
 
 //grab dom elements
+
+const cartData = JSON.parse(localStorage.getItem('cart'));
 
 const table = document.querySelector('table');
 const orderButton = document.getElementById('order-button');

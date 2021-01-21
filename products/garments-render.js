@@ -1,4 +1,6 @@
 
+import { addToCart } from '../cart/cart-api.js';
+
 export function renderGarments(garment) {
     const garmentLi = document.createElement('li');
 
@@ -41,7 +43,7 @@ export function renderGarments(garment) {
     garmentLi.append(addButton);
 
     addButton.addEventListener('click', () =>{
-        alert('add to cart');
+        addToCart(garment, 'cart');
     });
 
 

@@ -2,7 +2,7 @@
 import { renderGarments } from '../products/garments-render.js';
 import { findByID, calcItemTotal, calcOrderTotal } from '../utils.js';
 import { renderCartRow } from '../cart/render-cart-row.js';
-import { getCart } from '../cart/cart-api.js'
+import { getCart } from '../cart/cart-api.js';
  
 const test = QUnit.test;
 
@@ -78,7 +78,7 @@ const testCart = [
     }
 ];
 
-localStorage.setItem('testCart', testCart);
+localStorage.setItem('testCart', JSON.stringify(testCart));
 
 //render products function test
 test('given obj, return correct dom Element ', (expect) => {
@@ -118,7 +118,7 @@ test('given a quantity and price, return total amount ', (expect) => {
     
     //Act 
     // Call the function you're testing and set the result to a const
-    const actual = calcItemTotal(findByID(1, cart).quantity, findByID(1, garments).price);
+    const actual = calcItemTotal(findByID(1, testCart).quantity, findByID(1, garments).price);
 
     //Expect
     // Make assertions about what is expected versus the actual result
@@ -133,7 +133,7 @@ test('given cart item id and garment array, return correct dom element ', (expec
     
     //Act 
     // Call the function you're testing and set the result to a const
-    const actual = renderCartRow(cart[0], garments[0]);
+    const actual = renderCartRow(testCart[0], garments[0]);
 
     //Expect
     // Make assertions about what is expected versus the actual result
@@ -148,7 +148,7 @@ test('given a cart arr and garment arr, return order total for cart', (expect) =
     
     //Act 
     // Call the function you're testing and set the result to a const
-    const actual = calcOrderTotal(cart, garments);
+    const actual = calcOrderTotal(testCart, garments);
 
     //Expect
     // Make assertions about what is expected versus the actual result
@@ -167,6 +167,6 @@ test('given a key of cart, if cart return cart, if not return empty arr', (expec
 
     //Expect
     // Make assertions about what is expected versus the actual result
-    expect.equal(actual, expected);
+    expect.deepEqual(actual, expected);
 });
 

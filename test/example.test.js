@@ -2,6 +2,7 @@
 import { renderGarments } from '../products/garments-render.js';
 import { findByID, calcItemTotal, calcOrderTotal } from '../utils.js';
 import { renderCartRow } from '../cart/render-cart-row.js';
+import { getCart } from '../cart/cart-api.js'
  
 const test = QUnit.test;
 
@@ -62,7 +63,7 @@ const garments = [
     },
 ];
 
-const cart = [
+const testCart = [
     {
         id: 1,
         quantity: 1
@@ -76,6 +77,8 @@ const cart = [
         quantity: 2
     }
 ];
+
+localStorage.setItem('testCart', testCart);
 
 //render products function test
 test('given obj, return correct dom Element ', (expect) => {
@@ -146,6 +149,21 @@ test('given a cart arr and garment arr, return order total for cart', (expect) =
     //Act 
     // Call the function you're testing and set the result to a const
     const actual = calcOrderTotal(cart, garments);
+
+    //Expect
+    // Make assertions about what is expected versus the actual result
+    expect.equal(actual, expected);
+});
+
+//get cart test
+test('given a key of cart, if cart return cart, if not return empty arr', (expect) => {
+    //Arrange
+    // Set up your arguments and expectations
+    const expected = JSON.parse(localStorage.getItem('testCart'));
+    
+    //Act 
+    // Call the function you're testing and set the result to a const
+    const actual = getCart('testCart');
 
     //Expect
     // Make assertions about what is expected versus the actual result

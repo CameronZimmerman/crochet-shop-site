@@ -40,6 +40,10 @@ export function renderGarments(garment) {
     addButton.classList.add('add-button');
     garmentLi.append(addButton);
 
+    addButton.addEventListener('click', () =>{
+        alert('add to cart');
+    });
+
 
     return garmentLi;
 }

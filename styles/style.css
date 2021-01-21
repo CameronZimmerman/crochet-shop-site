@@ -34,7 +34,7 @@ main {
 section {
     background-color: var(--color5);
     width: 1000px;
-    max-width: 80%;
+    max-width: 70%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -136,5 +136,38 @@ footer {
     justify-content: flex-end;
     background-color: var(--color3);
     box-shadow: var(--shadow);
+}
+
+button {
+    margin: 10px;
+    padding: 15px;
+    background-color: rgb(212, 212, 212);
+    font-family: "Reeperbahn", cursive;
+    font-size: 2em;
+    border-radius: 50%;
+    outline: none;
+    text-align: center;
+}
+
+.table-container {
+    width: 100%;
+}
+table {
+    width: 100%;
+    text-align: center;
+    background-color: #CCF;
+    border: 2px dotted gray;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+th {
+    font-weight: bold;
+    border: 5px solid gray;
+    border-radius: 10px;
+}
+
+td {
+    padding-top: 25px;
 }
   

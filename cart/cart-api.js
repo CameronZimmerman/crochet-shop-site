@@ -20,3 +20,8 @@ export function addToCart(garment, cartKey) {
     const newCart = JSON.parse(localStorage.getItem(cartKey) || '[]');
     return newCart;
 }
+
+export function clearCart(cartKey) {
+    localStorage.removeItem(cartKey);
+    return localStorage.getItem(cartKey);
+}

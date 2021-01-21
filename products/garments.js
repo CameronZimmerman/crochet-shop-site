@@ -22,13 +22,13 @@ export const garments = [
         name : 'Headband',
         image : '../assets/headband.png',
         description : 'A stylish and warm headband.',
-        category : 'clothing',
+        category : 'accessory',
         price : 10
     },
 
     {
         id : 4,
-        name : 'Mike',
+        name : 'Mike Wazowski',
         image : '../assets/mike.png',
         description : 'Michael Wazowski also known as Mike, is a main character in Monsters, Inc.',
         category : 'other',
@@ -40,7 +40,7 @@ export const garments = [
         name : 'Scarf',
         image : '../assets/scarf.png',
         description : 'A long and luxurious crochet scarf!',
-        category : 'clothing',
+        category : 'accessory',
         price : 30
     },
 

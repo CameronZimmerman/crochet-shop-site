@@ -5,3 +5,18 @@ export function findByID(id, array) {
     }
     return;
 }
+
+export function calcItemTotal(quantity, price) {
+    return quantity * price; 
+}
+
+export function calcOrderTotal(cart, garments) {
+    let total = 0;
+
+    for (const cartItem of cart) {
+        let garmentPrice = findByID(cartItem.id, garments).price;
+        let cartItemPrice = calcItemTotal(cartItem.quantity, garmentPrice);
+        total += cartItemPrice;
+    }
+    return total;
+}

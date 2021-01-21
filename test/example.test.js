@@ -1,6 +1,7 @@
 // IMPORT MODULES under test here:
 import { renderGarments } from '../products/garments-render.js';
-import { findByID } from '../utils.js';
+import { findByID, calcItemTotal, calcOrderTotal } from '../utils.js';
+import { renderCartRow } from '../cart/render-cart-row.js';
  
 const test = QUnit.test;
 
@@ -12,22 +13,72 @@ const garments = [
         image : '../assets/mittens.png',
         description : 'A warm and cozy pair of mittens!',
         category : 'clothing',
-        price : 15 
+        price : 15
     },
 
     {
         id : 2,
-        name : 'Blanket',
-        image : '../assets/mittens.png',
-        description : 'A warm and cozy pair of mittens!',
+        name : 'Hat',
+        image : '../assets/hat.png',
+        description : 'A warm and cozy crochet beanie.',
         category : 'clothing',
-        price : 15 
-    }
+        price : 20
+    },
 
+    {
+        id : 3,
+        name : 'Headband',
+        image : '../assets/headband.png',
+        description : 'A stylish and warm headband.',
+        category : 'clothing',
+        price : 10
+    },
+
+    {
+        id : 4,
+        name : 'Mike',
+        image : '../assets/mike.png',
+        description : 'Michael Wazowski also known as Mike, is a main character in Monsters, Inc.',
+        category : 'other',
+        price : 2319
+    },
+
+    {
+        id : 5,
+        name : 'Scarf',
+        image : '../assets/scarf.png',
+        description : 'A long and luxurious crochet scarf!',
+        category : 'clothing',
+        price : 30
+    },
+
+    {
+        id : 6,
+        name : 'Sweater',
+        image : '../assets/sweater.png',
+        description : 'A charming and warm oversized sweater.',
+        category : 'clothing',
+        price : 15
+    },
 ];
 
-//render function test
-test('given obj, return correctly filled HTML string ', (expect) => {
+const cart = [
+    {
+        id: 1,
+        quantity: 1
+    },
+    {
+        id: 4,
+        quantity: 50
+    },
+    {
+        id: 3,
+        quantity: 2
+    }
+];
+
+//render products function test
+test('given obj, return correct dom Element ', (expect) => {
     //Arrange
     // Set up your arguments and expectations
     const expected = `<li><h3 class="item-name">Mittens</h3><div class="img-container"><img src="../assets/mittens.png" alt="A warm and cozy pair of mittens!"></div><div class="text-container"><p class="item-category">Category: clothing</p><p class="item-price">Price: $15</p><p class="item-description">A warm and cozy pair of mittens!</p></div><button class="add-button">Add to cart</button></li>`;
@@ -54,5 +105,50 @@ test('given an ID and an array, return corresponding obj from arr with same ID',
     //Expect
     // Make assertions about what is expected versus the actual result
     expect.deepEqual(actual, expected);
+});
+
+//calcItemTotal test
+test('given a quantity and price, return total amount ', (expect) => {
+    //Arrange
+    // Set up your arguments and expectations
+    const expected = 15;
+    
+    //Act 
+    // Call the function you're testing and set the result to a const
+    const actual = calcItemTotal(findByID(1, cart).quantity, findByID(1, garments).price);
+
+    //Expect
+    // Make assertions about what is expected versus the actual result
+    expect.equal(actual, expected);
+});
+
+//render cart row function
+test('given cart item id and garment array, return correct dom element ', (expect) => {
+    //Arrange
+    // Set up your arguments and expectations
+    const expected = `<tr><td>Mittens</td><td>1</td><td>$15</td></tr>`;
+    
+    //Act 
+    // Call the function you're testing and set the result to a const
+    const actual = renderCartRow(cart[0], garments[0]);
+
+    //Expect
+    // Make assertions about what is expected versus the actual result
+    expect.equal(actual.outerHTML, expected);
+});
+
+//calcOrderTotal function test
+test('given a cart arr and garment arr, return order total for cart', (expect) => {
+    //Arrange
+    // Set up your arguments and expectations
+    const expected = 115985;
+    
+    //Act 
+    // Call the function you're testing and set the result to a const
+    const actual = calcOrderTotal(cart, garments);
+
+    //Expect
+    // Make assertions about what is expected versus the actual result
+    expect.equal(actual, expected);
 });
 

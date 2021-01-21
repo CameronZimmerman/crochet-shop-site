@@ -2,7 +2,7 @@
 import { renderGarments } from '../products/garments-render.js';
 import { findByID, calcItemTotal, calcOrderTotal } from '../utils.js';
 import { renderCartRow } from '../cart/render-cart-row.js';
-import { getCart, addToCart } from '../cart/cart-api.js';
+import { getCart, addToCart, clearCart } from '../cart/cart-api.js';
  
 const test = QUnit.test;
 
@@ -232,6 +232,23 @@ test('given a product item and a cart, add item to cart/increment quantity', (ex
 
     expect.deepEqual(actual, expected);
     expect.deepEqual(actual2, expected2);
+
+});
+
+//clear cart test
+test('given a cart id remove from localsotrage', (expect) => {
+    //Arrange
+    // Set up your arguments and expectations
+    const expected = null;
+    
+    //Act 
+    // Call the function you're testing and set the result to a const
+    const actual = clearCart('testCart');
+
+    //Expect
+    // Make assertions about what is expected versus the actual result
+
+    expect.deepEqual(actual, expected);
 
 });
 

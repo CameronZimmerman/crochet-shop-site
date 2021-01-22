@@ -11,4 +11,10 @@ export function getAndSeedProducts() {
 
 }
 
+export function addProduct(garment) {
+    const garmentArr = getAndSeedProducts();
 
+    garmentArr.push(garment);
+
+    localStorage.setItem(PRODUCTS, JSON.stringify(garmentArr));
+}

@@ -1,4 +1,7 @@
 
+import { addToCart } from '../cart/cart-api.js';
+import { updateCartCount } from '../utils.js';
+
 export function renderGarments(garment) {
     const garmentLi = document.createElement('li');
 
@@ -35,10 +38,27 @@ export function renderGarments(garment) {
     garmentDescriptionP.textContent = garment.description;
     textContainer.append(garmentDescriptionP);
 
+    const quantityInput = document.createElement('input');
+    quantityInput.type = 'number';
+    quantityInput.min = 1;
+    quantityInput.placeholder = 'quantity: 1';
+    garmentLi.append(quantityInput);
+
     const addButton = document.createElement('button');
     addButton.textContent = 'Add to cart';
     addButton.classList.add('add-button');
     garmentLi.append(addButton);
+
+    addButton.addEventListener('click', () =>{
+        const garmentQuantity = quantityInput.value ? Number(quantityInput.value) : 1;
+
+        addToCart(garment, 'cart', garmentQuantity);
+        updateCartCount();
+        
+        quantityInput.value = quantityInput.placeholder;
+
+        alert(`You have added ${garmentQuantity} ${garment.name}(s) to your cart`);
+    });
 
 
     return garmentLi;

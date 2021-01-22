@@ -1,3 +1,5 @@
+import { getCart } from './cart/cart-api.js';
+
 export function findByID(id, array) {
 
     for (const item of array) {
@@ -19,4 +21,19 @@ export function calcOrderTotal(cart, garments) {
         total += cartItemPrice;
     }
     return total;
+}
+
+export function updateCartCount() {
+    const cartCountSpan = document.getElementById('cart-amount');
+    const CART = 'cart';
+    const cartData = getCart(CART);
+
+    let finalCount = 0;
+
+    for (const item of cartData) {
+        finalCount += item.quantity;
+    }
+    
+    cartCountSpan.textContent = finalCount;
+    
 }

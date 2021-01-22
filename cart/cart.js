@@ -1,9 +1,14 @@
 //import functions
 
-import { cartData } from './cart-data.js';
 import { renderCartRow } from './render-cart-row.js';
 import { garments } from '../products/garments.js';
 import { findByID, calcOrderTotal } from '../utils.js';
+import { clearCart, getCart } from '../cart/cart-api.js';
+
+
+const CART = 'cart';
+// grab storage data
+const cartData = getCart(CART);
 
 //grab dom elements
 
@@ -29,6 +34,11 @@ totalTd3.textContent = `$${calcOrderTotal(cartData, garments)}`;
 
 table.append(totalTr);
 
+if (cartData.length === 0) orderButton.disabled = true;
+else orderButton.disabled = false;
+
 orderButton.addEventListener('click', () => {
-    alert('Thank you for your order!');
+    const parsedCart = JSON.stringify(cartData, true, 2);
+    alert(`Thank you for your order! you ordered ` + parsedCart);
+    clearCart(CART);
 });

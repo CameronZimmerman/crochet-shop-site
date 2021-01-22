@@ -28,7 +28,12 @@ export function updateCartCount() {
     const CART = 'cart';
     const cartData = getCart(CART);
 
+    let finalCount = 0;
+
+    for (const item of cartData) {
+        finalCount += item.quantity;
+    }
     
-    cartCountSpan.textContent = cartData.length;
+    cartCountSpan.textContent = finalCount;
     
 }

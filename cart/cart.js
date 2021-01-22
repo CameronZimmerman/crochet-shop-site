@@ -5,8 +5,10 @@ import { garments } from '../products/garments.js';
 import { findByID, calcOrderTotal } from '../utils.js';
 import { clearCart, getCart } from '../cart/cart-api.js';
 
+
+const CART = 'cart';
 // grab storage data
-const cartData = getCart('cart');
+const cartData = getCart(CART);
 
 //grab dom elements
 
@@ -38,5 +40,5 @@ else orderButton.disabled = false;
 orderButton.addEventListener('click', () => {
     const parsedCart = JSON.stringify(cartData, true, 2);
     alert(`Thank you for your order! you ordered ` + parsedCart);
-    clearCart('cart');
+    clearCart(CART);
 });

@@ -63,8 +63,12 @@ header {
 }
 
 .cart-container :hover :last-child {
-    border: 2px dotted gray;
-    border-radius: 10%;
+    filter: invert(50%);
+}
+
+.cart-container span {
+    box-sizing: border-box;
+    position: absolute;
 }
 
 @font-face {

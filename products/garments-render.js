@@ -1,5 +1,6 @@
 
 import { addToCart } from '../cart/cart-api.js';
+import { updateCartCount } from '../utils.js';
 
 export function renderGarments(garment) {
     const garmentLi = document.createElement('li');
@@ -52,7 +53,8 @@ export function renderGarments(garment) {
         const garmentQuantity = quantityInput.value ? Number(quantityInput.value) : 1;
 
         addToCart(garment, 'cart', garmentQuantity);
-
+        updateCartCount();
+        
         quantityInput.value = quantityInput.placeholder;
 
         alert(`You have added ${garmentQuantity} ${garment.name}(s) to your cart`);

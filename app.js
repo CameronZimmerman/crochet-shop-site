@@ -1,5 +1,8 @@
-// import functions and grab DOM elements
+import { getCart } from './cart/cart-api.js';
 
-// initialize state
+const CART = 'cart';
+const cartCountSpan = document.getElementById('cart-amount');
 
-// set event listeners to update state and DOM
+const cartData = getCart(CART);
+
+cartCountSpan.textContent = cartData.length;

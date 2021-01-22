@@ -1,6 +1,5 @@
 
 import { addToCart } from '../cart/cart-api.js';
-import { findByID } from '../utils.js';
 
 export function renderGarments(garment) {
     const garmentLi = document.createElement('li');

@@ -1,10 +1,11 @@
 //import functions
 
 import { renderCartRow } from './render-cart-row.js';
-import { garments } from '../products/garments.js';
 import { findByID, calcOrderTotal } from '../utils.js';
 import { clearCart, getCart } from '../cart/cart-api.js';
+import { getAndSeedProducts } from '../admin/products-api.js';
 
+const garments = getAndSeedProducts();
 
 const CART = 'cart';
 // grab storage data
@@ -14,6 +15,7 @@ const cartData = getCart(CART);
 
 const table = document.querySelector('table');
 const orderButton = document.getElementById('order-button');
+const clearCartButton = document.getElementById('clear-cart-button');
 
 for (const cartItem of cartData) {
     const garment = findByID(cartItem.id, garments);
@@ -40,5 +42,9 @@ else orderButton.disabled = false;
 orderButton.addEventListener('click', () => {
     const parsedCart = JSON.stringify(cartData, true, 2);
     alert(`Thank you for your order! you ordered ` + parsedCart);
+    clearCart(CART);
+});
+
+clearCartButton.addEventListener('click', () => {
     clearCart(CART);
 });

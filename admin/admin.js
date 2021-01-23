@@ -13,7 +13,7 @@ formElement.addEventListener('submit', (e) => {
     let myFormData = new FormData(formElement);
 
     const newGarment = {
-        id: myFormData.get('ID'),
+        id: Number(myFormData.get('ID')),
         name: myFormData.get('Name'),
         image: isImgString(myFormData.get('Image')) ? myFormData.get('Image') : '../assets/mike.png',
         description: myFormData.get('Description'),

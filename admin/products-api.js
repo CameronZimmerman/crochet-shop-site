@@ -15,7 +15,8 @@ export function getAndSeedProducts() {
 export function addProduct(garment) {
     const garmentArr = getAndSeedProducts();
 
-    garmentArr.push(garment);
+    if (!findByID(garment.id, garmentArr)) garmentArr.push(garment);
+    else alert('invalid ID, already taken');
 
     localStorage.setItem(PRODUCTS, JSON.stringify(garmentArr));
 }

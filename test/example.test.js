@@ -260,7 +260,7 @@ test('given a new product obj, add obj to products in local storage', (expect) =
     // Set up your arguments and expectations
 
     const newProduct = {
-        id: 6,
+        id: 1000000000,
         name: 'boots',
         img: '',
         description: 'they are boots',

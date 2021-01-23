@@ -30,28 +30,38 @@
     </header>
     <main>
         <section class="main-section">
-            <form action="./" id = "admin-form">
-                <input type="number" name="ID" placeholder="Product ID">
-                <hr>
+            <div class = "form-container">
+                <form action="./" id = "admin-add-form">
+                    <input type="number" name="ID" placeholder="Product ID">
+                    <hr>
+    
+                    <input type="text" name="Name" placeholder="Product Name">
+                    <hr>
+    
+                    <p>Product Image URL</p>
+                    <input type= "text" name="Image">
+                    <hr>
+    
+                    <input type="text" name="Description" placeholder="Product Description">
+                    <hr>
+    
+                    <input type="text" name="Category" placeholder="Product Category">
+                    <hr>
+    
+                    <input type="number" name="Price" placeholder="Product Price">
+                    <hr>
+    
+                    <button id = 'admin-submit-button' type = "submit">Submit product</button>
+                </form>
 
-                <input type="text" name="Name" placeholder="Product Name">
-                <hr>
-
-                <p>Product Image URL</p>
-                <input type= "text" name="Image">
-                <hr>
-
-                <input type="text" name="Description" placeholder="Product Description">
-                <hr>
-
-                <input type="text" name="Category" placeholder="Product Category">
-                <hr>
-
-                <input type="number" name="Price" placeholder="Product Price">
-                <hr>
-
-                <button id = 'admin-submit-button' type = "submit">Submit product</button>
-            </form>
+                <form action="./" id = "admin-remove-form">
+                    <input type="number" name="ID" placeholder="Product ID">
+                    <hr>
+    
+                    <button id = 'remove-product-button' type = "submit">Remove product</button>
+                </form>
+            </div>
+            
             <button id = "reset-product-button">Reset products</button>
         </section>
     </main>

@@ -18,3 +18,7 @@ export function addProduct(garment) {
 
     localStorage.setItem(PRODUCTS, JSON.stringify(garmentArr));
 }
+
+export function clearProducts(){
+    localStorage.setItem(PRODUCTS, JSON.stringify(garments));
+}

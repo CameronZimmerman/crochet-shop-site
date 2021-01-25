@@ -37,3 +37,13 @@ export function updateCartCount() {
     cartCountSpan.textContent = finalCount;
     
 }
+
+export function isImgString(string) {
+    const supportedImages = ['.png', '.jpg', '.gif'];
+
+    for (const item of supportedImages) {
+        if (item === string.slice(string.length - 4)) return true;
+
+    }
+    return false;
+}

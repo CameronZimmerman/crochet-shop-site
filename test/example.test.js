@@ -3,6 +3,7 @@ import { renderGarments } from '../products/garments-render.js';
 import { findByID, calcItemTotal, calcOrderTotal } from '../utils.js';
 import { renderCartRow } from '../cart/render-cart-row.js';
 import { getCart, addToCart, clearCart } from '../cart/cart-api.js';
+import { addProduct } from '../admin/products-api.js';
  
 const test = QUnit.test;
 
@@ -112,6 +113,7 @@ const testCart3 = [
     }
 ];
 
+const PRODUCTS = 'products';
 
 localStorage.setItem('testCart', JSON.stringify(testCart));
 localStorage.setItem('testCart2', JSON.stringify(testCart2));
@@ -252,3 +254,29 @@ test('given a cart id remove from localsotrage', (expect) => {
 
 });
 
+//add product test
+test('given a new product obj, add obj to products in local storage', (expect) => {
+    //Arrange
+    // Set up your arguments and expectations
+
+    const newProduct = {
+        id: 1000000000,
+        name: 'boots',
+        img: '',
+        description: 'they are boots',
+        category: 'clothing',
+        price: 10
+    };
+
+    const expected = newProduct;
+    //Act 
+    // Call the function you're testing and set the result to a const
+    addProduct(newProduct);
+    const parsedArr = JSON.parse(localStorage.getItem(PRODUCTS) || '[]');
+    // set actual to last item in parsed array
+    const actual = parsedArr[parsedArr.length - 1];
+    //Expect
+    // Make assertions about what is expected versus the actual result
+    expect.deepEqual(actual, expected);
+
+});

@@ -1,0 +1,37 @@
+
+import { garments } from '../products/garments.js';
+import { findByID } from '../utils.js';
+const PRODUCTS = 'products';
+
+export function getAndSeedProducts() {
+    let products = JSON.parse(localStorage.getItem(PRODUCTS) || '[]');
+    if (products.length === 0) products = garments;
+    localStorage.setItem(PRODUCTS, JSON.stringify(products));
+
+    return products;
+
+}
+
+export function addProduct(garment) {
+    const garmentArr = getAndSeedProducts();
+
+    if (!findByID(garment.id, garmentArr)) garmentArr.push(garment);
+    else alert('invalid ID, already taken');
+
+    localStorage.setItem(PRODUCTS, JSON.stringify(garmentArr));
+}
+
+export function clearProducts(){
+    localStorage.setItem(PRODUCTS, JSON.stringify(garments));
+}
+
+export function removeProduct(id) {
+    const garmentArr = JSON.parse(localStorage.getItem(PRODUCTS));
+
+    const removeIndex = garmentArr.indexOf(findByID(id, garmentArr));
+
+    garmentArr.splice(removeIndex, 1);
+
+    localStorage.setItem(PRODUCTS, JSON.stringify(garmentArr));
+    
+}

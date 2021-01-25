@@ -1,0 +1,18 @@
+form {
+    text-align: center;
+    background-color: #CCF;
+    padding: 20px;
+    border: 2px dotted gray;
+    border-radius: 10px;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+}
+
+#admin-remove-form{
+    display: flex;
+    flex-direction: column;
+}
+
